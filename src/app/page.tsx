@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function Home() {
   const [codigo, setCodigo] = useState('');  // Almacena el código escrito por el usuario
   const [resultados, setResultados] = useState('');  // Almacena los resultados del lexer
+  const [contador, setContador] = useState(0);  // Almacena el número de tokens contados
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ export default function Home() {
   
     const data = await response.json();
     setResultados(data.resultados.join("\n"));
+    setContador(data.tokens_contados);  // Actualizar el estado con el número de tokens contados
   };
   
 
@@ -48,9 +50,11 @@ export default function Home() {
       </form>
       
       <h2 className="text-2xl font-semibold text-gray-800 mt-8">Resultados:</h2>
-      <pre className="w-full max-w-lg bg-gray-100 p-4 rounded-lg mt-4 shadow-md whitespace-pre-wrap text-black">        
+      <pre className="w-full max-w-lg bg-gray-100 p-4 rounded-lg mt-4 shadow-md whitespace-pre-wrap text-black">
         {resultados}
       </pre>
+      
+      <h2 className="text-xl font-semibold text-gray-800 mt-4">Número de tokens: {contador}</h2>
     </div>
   );
 }
