@@ -11,7 +11,7 @@ export default function Home() {
     e.preventDefault();
   
     // Hacer una solicitud POST a FastAPI con el código C
-    const response = await fetch("http://127.0.0.1:8000/analizar", {
+    const response = await fetch("https://lexer-back-2.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
