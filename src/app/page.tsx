@@ -30,7 +30,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ codigo }),  // Enviar el contenido del archivo o el textarea
+      body: JSON.stringify({ codigo }),  // Enviar el contenido del archivo o el textare
     });
   
     const data = await response.json();
@@ -89,3 +89,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+
